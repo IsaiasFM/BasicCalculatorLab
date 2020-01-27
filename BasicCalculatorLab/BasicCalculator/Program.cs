@@ -7,10 +7,11 @@ namespace BasicCalculator
         static void Main(string[] args)
         {
             const decimal num1 = 0.36m;
-            const double num3 = 0.621500;
-            const double num4 = 0.427500;
-            const double num5 = 35.7500;
-            const double num6 = 35.7400;
+            const decimal num3 = 0.6215m;
+            const decimal num4 = 0.4275m;
+            const decimal num5 = 35.75m;
+            const decimal num6 = 35.74m;
+            decimal DecimalNum2;
 
 
             Console.WriteLine("*** BASIC CALCULATOR ***");
@@ -32,9 +33,19 @@ namespace BasicCalculator
 
             double num2 = ExponCal(WindSpeed);
 
-            double WindChill = num6 + (num3 * TempFahr) - (num5 * num2) + (num4 * TempFahr * num2);
+            try
+            {
+               DecimalNum2 = System.Convert.ToDecimal(num2);
+                decimal WindChill = num6 + (num3 * TempFahr) - (num5 * DecimalNum2) + (num4 * TempFahr * DecimalNum2);
 
-            Console.WriteLine("Current wind chill is " + WindChill);
+                Console.WriteLine("Current wind chill is " + WindChill);
+            }
+            catch (System.OverflowException)
+            {
+
+            }
+
+            
         }
         public static double ExponCal(double input)
         {
@@ -43,6 +54,7 @@ namespace BasicCalculator
             double exponent = .016000;
 
             double result = Math.Pow(baseNum, exponent);
+
             return result;
         }
     }
