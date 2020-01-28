@@ -11,8 +11,6 @@ namespace BasicCalculator
             const double num4 = 0.427500;
             const double num5 = 35.7500;
             const double num6 = 35.7400;
-            
-
 
             Console.WriteLine("*** BASIC CALCULATOR ***");
 
